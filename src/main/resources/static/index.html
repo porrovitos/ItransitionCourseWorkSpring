@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>New Fanfiq</title>
+    <link rel="stylesheet" href="../static/css/create_fanfic.css">
+</head>
+<body>
+<div th:if="${param.success}">
+    Your fanfiq save successfully!
+</div>
+<form th:action="@{/fanfic}" method="post">
+    <div class="form">
+        <input type="text" class="amount" placeholder="Заголовок" name="title" required>
+        <input type="text" class="amount" placeholder="Текст" name="text_of_fanfiq" required>
+        <div class="add">+</div>
+        <div><input type="submit" value="CreateFanfiq"/></div>
+    </div>
+    <!-- partial -->
+    <script type="text/javascript" src="../static/js/full_fanfic.js" ></script>
+</form>
+</body>
+</html>
