@@ -1,4 +1,4 @@
-package com.example.fanfic.services;
+package com.example.fanfic.service;
 
 
 import com.example.fanfic.model.User;

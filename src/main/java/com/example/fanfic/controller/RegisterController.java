@@ -1,10 +1,9 @@
 package com.example.fanfic.controller;
 
-import com.example.fanfic.dto.AuthenticationRequestDto;
 import com.example.fanfic.dto.RegistrationRequestDto;
 import com.example.fanfic.model.User;
 import com.example.fanfic.repository.UserRepository;
-import com.example.fanfic.services.UserService;
+import com.example.fanfic.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.PostMapping;

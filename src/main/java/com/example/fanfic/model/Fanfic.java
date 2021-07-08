@@ -24,10 +24,25 @@ public class Fanfic {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime creation_date;
 
-    private String link_photo,fanfic;
+    private String link_photo,fanfic,fanfic_name, creator_username;
     private int count_likes;
 
 
+    public String getCreator_username() {
+        return creator_username;
+    }
+
+    public void setCreator_username(String creator_username) {
+        this.creator_username = creator_username;
+    }
+
+    public String getFanfic_name() {
+        return fanfic_name;
+    }
+
+    public void setFanfic_name(String fanfic_name) {
+        this.fanfic_name = fanfic_name;
+    }
 
     public LocalDateTime getCreation_date() {
         return creation_date;

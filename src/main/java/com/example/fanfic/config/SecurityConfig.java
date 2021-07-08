@@ -22,6 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_ENDPOINT = "/login";
     private static final String REGISTRATION_ENDPOINT = "/registration";
+    private static final String CREATE_FANFIC_ENDPOINT = "/fanfic/create";
+    private static final String ALL_FANFIC_ENDPOINT = "/fanfic";
+    private static final String ADD_FANFIC_ENDPOINT = "/fanfic/add";
+    private static final String ONE_FANFIC_ENDPOINT = "/fanfic/id/**";
+    private static final String FANDOM_ENDPOINT = "/fandom";
 
 
     @Autowired
@@ -45,6 +50,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(LOGIN_ENDPOINT).permitAll()
                 .antMatchers(REGISTRATION_ENDPOINT).permitAll()
+                .antMatchers(CREATE_FANFIC_ENDPOINT).permitAll()
+                .antMatchers(ALL_FANFIC_ENDPOINT).permitAll()
+                .antMatchers(ONE_FANFIC_ENDPOINT).permitAll()
+                .antMatchers(FANDOM_ENDPOINT).permitAll()
+                .antMatchers(ADD_FANFIC_ENDPOINT).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .apply(new JwtConfigurer(jwtTokenProvider));

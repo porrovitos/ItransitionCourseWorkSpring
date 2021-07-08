@@ -3,7 +3,7 @@ package com.example.fanfic.security;
 import com.example.fanfic.model.User;
 import com.example.fanfic.security.jwt.JwtUser;
 import com.example.fanfic.security.jwt.JwtUserFactory;
-import com.example.fanfic.services.UserService;
+import com.example.fanfic.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;

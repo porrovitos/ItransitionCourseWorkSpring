@@ -1,19 +1,16 @@
-package com.example.fanfic.services.impl;
+package com.example.fanfic.service.impl;
 
-import com.example.fanfic.model.Role;
 import com.example.fanfic.model.Status;
 import com.example.fanfic.model.User;
 import com.example.fanfic.repository.RoleRepository;
 import com.example.fanfic.repository.UserRepository;
-import com.example.fanfic.services.UserService;
+import com.example.fanfic.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

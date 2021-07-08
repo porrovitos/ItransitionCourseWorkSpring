@@ -3,7 +3,7 @@ package com.example.fanfic.controller;
 import com.example.fanfic.dto.AuthenticationRequestDto;
 import com.example.fanfic.model.User;
 import com.example.fanfic.security.jwt.JwtTokenProvider;
-import com.example.fanfic.services.UserService;
+import com.example.fanfic.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -44,19 +44,16 @@ public class AuthenticationController {
             User user = userService.findByUsername(username);
 
             if (user == null) {
-                System.out.println("d");
                 throw new UsernameNotFoundException("User with username: " + username + " not found");
             }
 
             String token = jwtTokenProvider.createToken(username, user.getRoles());
-            System.out.println("w");
             Map<Object, Object> response = new HashMap<>();
             response.put("user", user);
-            response.put("token", token);
+            response.put("jwt", token);
 
             return ResponseEntity.ok(response);
         } catch (AuthenticationException e) {
-            System.out.println("e");
             throw new BadCredentialsException("Invalid username or password");
         }
     }
