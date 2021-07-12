@@ -28,12 +28,12 @@ public class LikeServiceImpl implements LikeService {
 
 
     @Override
-    public Likes findLikeByFanficAndUser(Fanfic fanfic, User user){
+    public Likes findLikeByFanficAndUser(Fanfic fanfic, User user) {
         return likeRepository.findByFanficAndUser(fanfic, user);
     }
 
     @Override
-    public Likes addLike(Likes like){
+    public Likes addLike(Likes like) {
         Fanfic changeCountOfLikes = fanficRepository.getById(like.getFanfic().getId());
         changeCountOfLikes.setCount_likes(changeCountOfLikes.getCount_likes() + 1);
         fanficRepository.save(changeCountOfLikes);
@@ -42,15 +42,15 @@ public class LikeServiceImpl implements LikeService {
 
 
     @Override
-    public Optional<Likes> findById(Long id){
+    public Optional<Likes> findById(Long id) {
         return likeRepository.findById(id);
     }
 
     @Override
-    public void removeLike(Long fanficId, Long UserId){
+    public void removeLike(Long fanficId, Long UserId) {
         Fanfic fanfic = fanficService.findById(fanficId);
         User user = userService.findById(UserId);
-        Likes for_delete = findLikeByFanficAndUser(fanfic,user);
+        Likes for_delete = findLikeByFanficAndUser(fanfic, user);
         Fanfic changeCountOfLikes = fanficRepository.getById(fanficId);
         changeCountOfLikes.setCount_likes(changeCountOfLikes.getCount_likes() - 1);
         fanficRepository.save(changeCountOfLikes);

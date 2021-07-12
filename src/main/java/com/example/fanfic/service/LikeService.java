@@ -11,7 +11,10 @@ import java.util.Optional;
 public interface LikeService {
 
     Likes findLikeByFanficAndUser(Fanfic fanfic, User user);
+
     Likes addLike(Likes like);
+
     Optional<Likes> findById(Long id);
+
     void removeLike(Long fanficId, Long UserId);
 }

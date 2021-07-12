@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface FavoriteRepository extends JpaRepository<Favorite, Long> {
     Favorite findByFanficAndUser(Fanfic fanfic, User user);
+
     List<Favorite> findByFanfic(Fanfic fanfic);
+
     List<Favorite> findByUser(User user);
 }

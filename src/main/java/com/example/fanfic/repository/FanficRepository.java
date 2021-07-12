@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface FanficRepository extends JpaRepository<Fanfic, Long> {
     List<Fanfic> findAll();
+
     List<Fanfic> findByFandom(Fandom fandom);
+
     List<Fanfic> findByUser(User user);
 }

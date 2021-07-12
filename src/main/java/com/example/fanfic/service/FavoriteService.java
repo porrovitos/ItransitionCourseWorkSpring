@@ -10,6 +10,8 @@ import java.util.List;
 public interface FavoriteService {
 
     Favorite findByFanficAndUser(Fanfic fanfic, User user);
+
     Favorite addFavorite(Favorite favorite);
+
     List<Favorite> findByUser(User user);
 }

@@ -25,18 +25,18 @@ public class FavoriteServiceImpl implements FavoriteService {
 
 
     @Override
-    public  Favorite findByFanficAndUser(Fanfic fanfic, User user){
+    public Favorite findByFanficAndUser(Fanfic fanfic, User user) {
         return favoriteRepository.findByFanficAndUser(fanfic, user);
     }
 
     @Override
-    public Favorite addFavorite(Favorite favorite){
+    public Favorite addFavorite(Favorite favorite) {
         return favoriteRepository.save(favorite);
     }
 
 
     @Override
-    public List<Favorite> findByUser(User user){
+    public List<Favorite> findByUser(User user) {
         return favoriteRepository.findByUser(user);
     }
 

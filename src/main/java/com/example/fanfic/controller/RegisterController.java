@@ -19,6 +19,7 @@ import java.util.Map;
 public class RegisterController {
     private final UserService userService;
     private final UserRepository userRepository;
+
     public RegisterController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
@@ -26,17 +27,16 @@ public class RegisterController {
 
     @PostMapping()
     public ResponseEntity register(@RequestBody RegistrationRequestDto requestDto) {
-            String username = requestDto.getUsername();
-            User user = userRepository.findByUsername(username);
-            if(user != null){
-                throw new BadCredentialsException("User with this nickname was extended");
-            }
-            else {
-                User new_user = (User) userService.register(requestDto.getEmail(), requestDto.getUsername(), requestDto.getPassword());
-                userRepository.save(new_user);
-                Map<Object, Object> response = new HashMap<>();
-                response.put("user", new_user);
-                return ResponseEntity.ok(response);
-            }
+        String username = requestDto.getUsername();
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            throw new BadCredentialsException("User with this nickname was extended");
+        } else {
+            User new_user = (User) userService.register(requestDto.getEmail(), requestDto.getUsername(), requestDto.getPassword());
+            userRepository.save(new_user);
+            Map<Object, Object> response = new HashMap<>();
+            response.put("user", new_user);
+            return ResponseEntity.ok(response);
+        }
     }
 }

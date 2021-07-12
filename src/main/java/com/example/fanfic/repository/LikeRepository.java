@@ -11,5 +11,4 @@ public interface LikeRepository extends JpaRepository<Likes, Long> {
     Likes findByFanficAndUser(Fanfic fanfic, User user);
 
     List<Likes> findByFanfic(Fanfic fanfic);
-    void deleteByFanfic(Fanfic fanfic);
 }

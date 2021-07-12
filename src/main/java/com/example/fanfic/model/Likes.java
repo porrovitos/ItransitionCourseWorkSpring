@@ -14,7 +14,7 @@ public class Likes {
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "fanfic_id")
+    @JoinColumn(name = "fanfic_id")
     private Fanfic fanfic;
 
     public Long getId() {

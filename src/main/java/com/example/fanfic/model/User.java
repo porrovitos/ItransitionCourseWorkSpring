@@ -26,7 +26,7 @@ public class User {
 
     @Column(name = "username")
     private String username;
-    private String email,password;
+    private String email, password;
 
 
     @ManyToMany(fetch = FetchType.EAGER)

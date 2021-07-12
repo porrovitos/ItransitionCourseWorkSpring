@@ -20,6 +20,7 @@ public class FanficServiceImpl implements FanficService {
     private final LikeRepository likeRepository;
     private final CommentRepository commentRepository;
     private final FavoriteRepository favoriteRepository;
+
     @Autowired
     public FanficServiceImpl(FanficRepository fanficRepository, LikeRepository likeRepository, CommentRepository commentRepository, FavoriteRepository favoriteRepository) {
         this.fanficRepository = fanficRepository;
@@ -40,22 +41,23 @@ public class FanficServiceImpl implements FanficService {
     }
 
     @Override
-    public Fanfic addFanfic(Fanfic fanfic){
+    public Fanfic addFanfic(Fanfic fanfic) {
         fanfic.setCreation_date(LocalDateTime.now());
         return fanficRepository.save(fanfic);
     }
+
     @Override
     public Fanfic findById(Long id) {
         return fanficRepository.findById(id).orElse(null);
     }
 
     @Override
-    public  List<Fanfic> findByFandom(Fandom fandom){
+    public List<Fanfic> findByFandom(Fandom fandom) {
         return fanficRepository.findByFandom(fandom);
     }
 
     @Override
-    public void deleteFanfic(Fanfic fanfic){
+    public void deleteFanfic(Fanfic fanfic) {
         List<Favorite> favoritesForDelete = favoriteRepository.findByFanfic(fanfic);
         favoriteRepository.deleteAll(favoritesForDelete);
         List<Likes> likesForDelete = likeRepository.findByFanfic(fanfic);

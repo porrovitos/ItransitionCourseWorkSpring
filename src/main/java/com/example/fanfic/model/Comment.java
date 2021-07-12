@@ -29,7 +29,7 @@ public class Comment {
     private User user;
 
     @ManyToOne()
-    @JoinColumn(name= "fanfic_id")
+    @JoinColumn(name = "fanfic_id")
     private Fanfic fanfic;
 
     public Fanfic getFanfic() {
@@ -63,7 +63,6 @@ public class Comment {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public User getUser() {

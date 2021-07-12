@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface FanficService {
 
-
     List<Fanfic> getAllFanfics();
 
     List<Fanfic> findByUser(User user);

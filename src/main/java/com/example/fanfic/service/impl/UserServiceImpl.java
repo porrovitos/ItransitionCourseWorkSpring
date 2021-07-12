@@ -1,6 +1,5 @@
 package com.example.fanfic.service.impl;
 
-import com.example.fanfic.model.Role;
 import com.example.fanfic.model.Status;
 import com.example.fanfic.model.User;
 import com.example.fanfic.repository.RoleRepository;
@@ -12,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -33,11 +31,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User register(String email, String username, String password) {
         User user = new User();
-        Role roleUser = roleRepository.findByName("USER");
-
-        List<Role> userRoles = new ArrayList<>();
-        userRoles.add(roleUser);
-        user.setRoles(userRoles);
+//        Role roleUser = roleRepository.findByName("ROLE_USER");
+//
+//        List<Role> userRoles = new ArrayList<>();
+//        userRoles.add(roleUser);
+//        user.setRoles(userRoles);
         user.setPassword(passwordEncoder.encode(password));
         user.setEmail(email);
         user.setUsername(username);
@@ -67,10 +65,5 @@ public class UserServiceImpl implements UserService {
         }
 
         return result;
-    }
-
-    @Override
-    public void delete(Long id) {
-        userRepository.deleteById(id);
     }
 }

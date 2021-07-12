@@ -29,7 +29,7 @@ public class CommentController {
     @GetMapping("fanfic/{id}")
     public ResponseEntity<List<Comment>> getFanfic(@PathVariable("id") Long id) {
         Fanfic fanfic = fanficService.findById(id);
-        List<Comment> comments= commentService.findByFanfic(fanfic);
+        List<Comment> comments = commentService.findByFanfic(fanfic);
         return new ResponseEntity<>(comments, HttpStatus.OK);
     }
 

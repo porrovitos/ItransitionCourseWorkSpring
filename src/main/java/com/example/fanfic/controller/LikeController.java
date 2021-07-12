@@ -35,7 +35,7 @@ public class LikeController {
     @PostMapping("fanfic/{fanfic_id}")
     public ResponseEntity<Likes> getLikeByFanficAndUser(@PathVariable("fanfic_id") Long fanfic_id, @RequestBody User user) {
         Fanfic fanfic = fanficService.findById(fanfic_id);
-        Likes inFavorite= likeService.findLikeByFanficAndUser(fanfic, user);
+        Likes inFavorite = likeService.findLikeByFanficAndUser(fanfic, user);
         return new ResponseEntity<>(inFavorite, HttpStatus.OK);
     }
 
@@ -46,8 +46,8 @@ public class LikeController {
     }
 
     @DeleteMapping("fanfic/{fanfic_id}/delete/{user_id}")
-    public void deleteLike(@PathVariable("fanfic_id") Long fanfic_id,@PathVariable("user_id") Long user_id) {
-        likeService.removeLike(fanfic_id,user_id);
+    public void deleteLike(@PathVariable("fanfic_id") Long fanfic_id, @PathVariable("user_id") Long user_id) {
+        likeService.removeLike(fanfic_id, user_id);
     }
 }
 

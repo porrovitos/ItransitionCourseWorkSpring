@@ -23,12 +23,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public  List<Comment> findByFanfic(Fanfic fanfic){
+    public List<Comment> findByFanfic(Fanfic fanfic) {
         return commentRepository.findByFanfic(fanfic);
     }
 
     @Override
-    public Comment addComment(Comment comment){
+    public Comment addComment(Comment comment) {
         comment.setCreation_date(LocalDateTime.now());
         return commentRepository.save(comment);
     }

@@ -24,15 +24,15 @@ public class Fanfic {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime creation_date;
 
-    private String link_photo,fanfic,fanfic_name, user_username, description;
+    private String link_photo, fanfic, fanfic_name, user_username, description;
     private int count_likes;
 
     @ManyToOne
-    @JoinColumn(name= "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name= "fandom_id")
+    @JoinColumn(name = "fandom_id")
     private Fandom fandom;
 
     public String getDescription() {

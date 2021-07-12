@@ -35,7 +35,7 @@ public class FavoriteController {
     @PostMapping("fanfic/{fanfic_id}")
     public ResponseEntity<Favorite> getFavoriteByFanficAndUser(@PathVariable("fanfic_id") Long fanfic_id, @RequestBody User user) {
         Fanfic fanfic = fanficService.findById(fanfic_id);
-        Favorite inFavorite= favoriteService.findByFanficAndUser(fanfic, user);
+        Favorite inFavorite = favoriteService.findByFanficAndUser(fanfic, user);
         return new ResponseEntity<>(inFavorite, HttpStatus.OK);
     }
 
@@ -51,13 +51,11 @@ public class FavoriteController {
         return new ResponseEntity<>(favoriteListByUser, HttpStatus.OK);
     }
 
-
-
     @DeleteMapping("fanfic/{fanfic_id}/delete/{user_id}")
-    public void deleteFavorite(@PathVariable("fanfic_id") Long fanfic_id,@PathVariable("user_id") Long user_id) {
+    public void deleteFavorite(@PathVariable("fanfic_id") Long fanfic_id, @PathVariable("user_id") Long user_id) {
         Fanfic fanfic = fanficService.findById(fanfic_id);
         User user = userService.findById(user_id);
-        Favorite for_delete = favoriteRepository.findByFanficAndUser(fanfic,user);
+        Favorite for_delete = favoriteRepository.findByFanficAndUser(fanfic, user);
         favoriteRepository.delete(for_delete);
     }
 }
