@@ -5,6 +5,7 @@ import com.example.fanfic.model.Fanfic;
 import com.example.fanfic.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface FanficRepository extends JpaRepository<Fanfic, Long> {

@@ -20,15 +20,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    private static final String LOGIN_ENDPOINT = "/login";
-    private static final String REGISTRATION_ENDPOINT = "/registration";
-    private static final String ALL_FANFIC_ENDPOINT = "/fanfic";
-    private static final String ADD_FANFIC_ENDPOINT = "/fanfic/**";
-    private static final String ADD_COMMENT_ENDPOINT = "/comment/**";
-    private static final String SEARCH_FANFICS_ENDPOINT = "/user";
-    private static final String ALL_FANFICS_ENDPOINT = "/user/**";
-    private static final String FANDOM_ENDPOINT = "/fandom";
-    private static final String ADD_FAVORITE_ENDPOINT = "/favorite/**";
+    private static final String ONLY_LOGIN_ENDPOINT = "/login";
+    private static final String ONLY_REGISTRATION_ENDPOINT = "/registration";
+    private static final String ONLY_FANFIC_ENDPOINT = "/fanfic";
+    private static final String FANFIC_ENDPOINT = "/fanfic/**";
+    private static final String COMMENT_ENDPOINT = "/comment/**";
+    private static final String ONLY_SEARCH_FANFICS_ENDPOINT = "/user";
+    private static final String FANFICS_ENDPOINT = "/user/**";
+    private static final String ONLY_FANDOM_ENDPOINT = "/fandom";
+    private static final String FAVORITE_ENDPOINT = "/favorite/**";
     private static final String LIKE_ENDPOINT = "/like/**";
 
 
@@ -52,16 +52,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers(LOGIN_ENDPOINT).permitAll()
+                .antMatchers(ONLY_LOGIN_ENDPOINT).permitAll()
                 .antMatchers(LIKE_ENDPOINT).permitAll()
-                .antMatchers(ALL_FANFICS_ENDPOINT).permitAll()
-                .antMatchers(ADD_FAVORITE_ENDPOINT).permitAll()
-                .antMatchers(ADD_COMMENT_ENDPOINT).permitAll()
-                .antMatchers(REGISTRATION_ENDPOINT).permitAll()
-                .antMatchers(ALL_FANFIC_ENDPOINT).permitAll()
-                .antMatchers(FANDOM_ENDPOINT).permitAll()
-                .antMatchers(SEARCH_FANFICS_ENDPOINT).permitAll()
-                .antMatchers(ADD_FANFIC_ENDPOINT).permitAll()
+                .antMatchers(ONLY_REGISTRATION_ENDPOINT).permitAll()
+                .antMatchers(ONLY_FANFIC_ENDPOINT).permitAll()
+                .antMatchers(FANFIC_ENDPOINT).permitAll()
+                .antMatchers(COMMENT_ENDPOINT).permitAll()
+                .antMatchers(ONLY_SEARCH_FANFICS_ENDPOINT).permitAll()
+                .antMatchers(FANFICS_ENDPOINT).permitAll()
+                .antMatchers(ONLY_FANDOM_ENDPOINT).permitAll()
+                .antMatchers(FAVORITE_ENDPOINT).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .apply(new JwtConfigurer(jwtTokenProvider));

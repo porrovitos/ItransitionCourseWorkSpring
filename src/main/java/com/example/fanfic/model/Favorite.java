@@ -7,8 +7,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@ToString(of = {"id", "title"})
-@EqualsAndHashCode(of = {"id"})
 public class Favorite {
 
     @Id

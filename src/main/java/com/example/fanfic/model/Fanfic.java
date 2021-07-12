@@ -11,8 +11,6 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@ToString(of = {"id", "title"})
-@EqualsAndHashCode(of = {"id"})
 public class Fanfic {
 
     @Id
@@ -24,7 +22,7 @@ public class Fanfic {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime creation_date;
 
-    private String link_photo, fanfic, fanfic_name, user_username, description;
+    private String fanfic, fanfic_name, user_username, description;
     private int count_likes;
 
     @ManyToOne
@@ -97,14 +95,6 @@ public class Fanfic {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLink_photo() {
-        return link_photo;
-    }
-
-    public void setLink_photo(String link_photo) {
-        this.link_photo = link_photo;
     }
 
     public int getCount_likes() {

@@ -9,8 +9,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@ToString(of = {"id", "title"})
-@EqualsAndHashCode(of = {"id"})
 public class Comment {
 
     @Id
