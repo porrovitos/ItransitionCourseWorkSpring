@@ -24,16 +24,47 @@ public class Fanfic {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime creation_date;
 
-    private String link_photo,fanfic,fanfic_name, creator_username;
+    private String link_photo,fanfic,fanfic_name, user_username, description;
     private int count_likes;
 
+    @ManyToOne
+    @JoinColumn(name= "user_id")
+    private User user;
 
-    public String getCreator_username() {
-        return creator_username;
+    @ManyToOne
+    @JoinColumn(name= "fandom_id")
+    private Fandom fandom;
+
+    public String getDescription() {
+        return description;
     }
 
-    public void setCreator_username(String creator_username) {
-        this.creator_username = creator_username;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Fandom getFandom() {
+        return fandom;
+    }
+
+    public void setFandom(Fandom fandom) {
+        this.fandom = fandom;
+    }
+
+    public String getUser_username() {
+        return user_username;
+    }
+
+    public void setUser_username(String user_username) {
+        this.user_username = user_username;
     }
 
     public String getFanfic_name() {
