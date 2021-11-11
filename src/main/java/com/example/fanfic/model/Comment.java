@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 public class Comment {
 
     @Id
+    @JoinColumn(name = "idcomment")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -20,14 +21,15 @@ public class Comment {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime creation_date;
 
+    @JoinColumn(name = "commenttext")
     private String text;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "iduser")
     private User user;
 
     @ManyToOne()
-    @JoinColumn(name = "fanfic_id")
+    @JoinColumn(name = "idfanfic")
     private Fanfic fanfic;
 
     public Fanfic getFanfic() {

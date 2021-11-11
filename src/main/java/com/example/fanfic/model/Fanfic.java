@@ -22,7 +22,7 @@ public class Fanfic {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime creation_date;
 
-    private String fanfic, fanfic_name, user_username, description;
+    private String fanfic_name, description;
     private int count_likes;
 
     @ManyToOne
@@ -33,12 +33,44 @@ public class Fanfic {
     @JoinColumn(name = "fandom_id")
     private Fandom fandom;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getCreation_date() {
+        return creation_date;
+    }
+
+    public void setCreation_date(LocalDateTime creation_date) {
+        this.creation_date = creation_date;
+    }
+
+    public String getFanfic_name() {
+        return fanfic_name;
+    }
+
+    public void setFanfic_name(String fanfic_name) {
+        this.fanfic_name = fanfic_name;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getCount_likes() {
+        return count_likes;
+    }
+
+    public void setCount_likes(int count_likes) {
+        this.count_likes = count_likes;
     }
 
     public User getUser() {
@@ -55,53 +87,5 @@ public class Fanfic {
 
     public void setFandom(Fandom fandom) {
         this.fandom = fandom;
-    }
-
-    public String getUser_username() {
-        return user_username;
-    }
-
-    public void setUser_username(String user_username) {
-        this.user_username = user_username;
-    }
-
-    public String getFanfic_name() {
-        return fanfic_name;
-    }
-
-    public void setFanfic_name(String fanfic_name) {
-        this.fanfic_name = fanfic_name;
-    }
-
-    public LocalDateTime getCreation_date() {
-        return creation_date;
-    }
-
-    public void setCreation_date(LocalDateTime creation_date) {
-        this.creation_date = creation_date;
-    }
-
-    public String getFanfic() {
-        return fanfic;
-    }
-
-    public void setFanfic(String fanfic) {
-        this.fanfic = fanfic;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getCount_likes() {
-        return count_likes;
-    }
-
-    public void setCount_likes(int count_likes) {
-        this.count_likes = count_likes;
     }
 }

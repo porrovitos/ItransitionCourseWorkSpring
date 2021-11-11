@@ -14,9 +14,11 @@ import java.util.Date;
 public class Fandom {
 
     @Id
+    @JoinColumn(name = "idfandom")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JoinColumn(name = "fandom_name")
     private String fandom_name;
 
     public Long getId() {

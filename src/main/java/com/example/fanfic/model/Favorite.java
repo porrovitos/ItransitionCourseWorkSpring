@@ -10,15 +10,16 @@ import javax.persistence.*;
 public class Favorite {
 
     @Id
+    @JoinColumn(name = "idfavorite")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "iduser")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fanfic_id")
+    @JoinColumn(name = "idfanfic")
     private Fanfic fanfic;
 
     public Fanfic getFanfic() {

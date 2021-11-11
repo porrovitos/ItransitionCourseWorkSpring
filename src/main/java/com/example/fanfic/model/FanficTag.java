@@ -3,20 +3,20 @@ package com.example.fanfic.model;
 import javax.persistence.*;
 
 @Entity
-public class Likes {
+public class FanficTag {
 
     @Id
-    @JoinColumn(name = "idlike")
+    @JoinColumn(name = "idfanfictag")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "iduser")
-    private User user;
-
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "idfanfic")
     private Fanfic fanfic;
+
+    @ManyToOne
+    @JoinColumn(name = "idtag")
+    private Tag tag;
 
     public Long getId() {
         return id;
@@ -26,19 +26,19 @@ public class Likes {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Fanfic getFanfic() {
         return fanfic;
     }
 
     public void setFanfic(Fanfic fanfic) {
         this.fanfic = fanfic;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
     }
 }
